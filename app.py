@@ -3,6 +3,7 @@ import swisseph as swe
 from datetime import datetime, timedelta
 import requests  # Used to query the Google Timezone API
 from flask_cors import CORS
+import os
 
 app = Flask(__name__)
 CORS(app)
@@ -51,8 +52,8 @@ def calculate_ascendant():
         birth_time = data['time']
         latitude = float(data['latitude'])
         longitude = float(data['longitude'])
-        google_api_key = data['google_api_key']  # API key passed from the frontend
-
+        google_api_key = os.getenv('GOOGLE_API_KEY')  # Utilisation de la variable d'environnement
+        timezone_api_key = os.getenv('TIMEZONE_API_KEY')
         # Adjust local time to GMT using Google Timezone API
         gmt_datetime = adjust_to_gmt(birth_date, birth_time, latitude, longitude, google_api_key)
 
