@@ -6,7 +6,7 @@ from flask_cors import CORS
 import os
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "https:www.welcometoyumiverse.com"}})
+CORS(app, resources={r"/*": {"origins": ["https://panda-plantain-cmt4.squarespace.com", "https://welcometoyumiverse.com"]}})
 
 # Function to adjust local time to GMT based on the location (latitude/longitude)
 def adjust_to_gmt(date_str, time_str, latitude, longitude, google_api_key):
