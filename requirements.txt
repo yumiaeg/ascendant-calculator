@@ -9,3 +9,5 @@ pyswisseph==2.10.3.2
 pytz==2024.2
 Werkzeug==3.0.4
 gunicorn
+requests
+
